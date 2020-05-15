@@ -22,16 +22,13 @@ const deleteEventSuccess = (eventId) => {
 };
 
 export const loginUser = (userName) => (dispatch) => {
-  console.log('Value received', userName);
   dispatch(loginUserSuccess(userName));
 };
 
 export const AddEvent = (eventDetails) => (dispatch) => {
-  console.log('Event Details received', eventDetails);
   dispatch(addEventSuccess(eventDetails));
 };
 
 export const DeleteEvent = (eventId) => (dispatch) => {
-  console.log('Event ID received', eventId);
   dispatch(deleteEventSuccess(eventId));
 };

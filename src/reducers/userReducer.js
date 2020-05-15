@@ -1,26 +1,23 @@
 import {LOGIN_USER, ADD_EVENT, DELETE_EVENT} from '../actions/types';
 
 const initialState = {
-  userData: {
-    name: '',
-    eventsList: [],
-  },
+  name: '',
+  eventsList: [],
 };
 
 const userReducer = (state = initialState, action) => {
-  console.log('User Reducer: ', action);
   switch (action.type) {
     case LOGIN_USER:
       return {
-        ...state.userData,
+        ...state,
         ...{
           name: action.payload,
         },
       };
     case ADD_EVENT:
-      console.log("AddEvent Called", action.payload);
       return {
-        ...state.userData.eventsList.push(action.payload),
+        ...state,
+        eventsList: [...state.eventsList, action.payload],
       };
     case DELETE_EVENT: {
       var removeIndex = state.eventsList

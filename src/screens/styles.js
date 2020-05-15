@@ -7,6 +7,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
   },
+  parentContainerCenterAligned: {
+    paddingTop: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   labelStyle: {
     fontSize: 16,
     fontWeight: 'bold',
@@ -50,21 +55,43 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     paddingHorizontal: 5,
   },
+  eventContainerGrid: {
+    borderWidth: 1,
+    marginBottom: 10,
+    height: 140,
+    width: 120,
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    marginRight: 10,
+  },
   eventImageList: {
     height: 75,
     width: 75,
+  },
+  eventImageGrid: {
+    height: 100,
+    width: 100,
   },
   eventDetailsStyle: {
     fontSize: 12,
     fontWeight: 'bold',
     marginBottom: 4,
   },
-  eventImageGrid: {
-    height: 96,
-    width: 96,
+  eventDetailsTextStyle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
   registerButtonView: {
     height: 36,
+    backgroundColor: 'green',
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  registerButtonBigView: {
+    height: 60,
+    marginTop: 20,
     backgroundColor: 'green',
     alignSelf: 'center',
     alignItems: 'center',
@@ -75,6 +102,27 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
   },
+  registerButtonBigText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#fff',
+    margin: 10,
+  },
+  pickerSelectionButton: {
+    height: 40,
+    backgroundColor: 'blue',
+    borderWidth: 1,
+    marginBottom: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  pickerStyle: {
+    height: 150,
+    // width: '80%',
+    color: '#344953',
+    justifyContent: 'center',
+  },
+  fullImageContainer: {height: 500, width: '80%'},
 });
 
 export default styles;
