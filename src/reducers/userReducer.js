@@ -9,7 +9,6 @@ const initialState = {
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case REHYDRATE:
-      console.log('rehydrate Event: ', action);
       if (!action.payload) {
         return {...state};
       }
@@ -26,7 +25,6 @@ const userReducer = (state = initialState, action) => {
       };
     case LOGIN_USER:
       if (state.name !== action.payload) {
-        console.log('Values changed', state.rehydratedName, action.payload);
         return {
           ...state,
           name: action.payload,
