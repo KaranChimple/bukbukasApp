@@ -74,7 +74,12 @@ class EventsList extends PureComponent {
     console.log('userData: ', this.props.userData, dataFormat);
     return (
       <ScrollView style={{paddingTop: 48, paddingHorizontal: 15}}>
-        <View style={{flexDirection: 'row', width: '100%', justifyContent: 'space-around'}}>
+        <View
+          style={{
+            flexDirection: 'row',
+            width: '100%',
+            justifyContent: 'space-around',
+          }}>
           <TouchableOpacity
             style={styles.pickerSelectionButton}
             hitSlop={{

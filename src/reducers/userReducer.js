@@ -1,4 +1,4 @@
-import { LOGIN_USER, ADD_EVENT, DELETE_EVENT } from '../actions/types';
+import {LOGIN_USER, ADD_EVENT, DELETE_EVENT} from '../actions/types';
 
 const initialState = {
   name: '',
@@ -23,9 +23,7 @@ const userReducer = (state = initialState, action) => {
       var removeIndex = -1;
       const newEventsList = state.eventsList;
       newEventsList.some((event, index) => {
-        console.log('index: ', index);
         if (event.id === action.id) {
-          console.log("Index found", index);
           removeIndex = index;
           return true;
         } else {
@@ -33,7 +31,6 @@ const userReducer = (state = initialState, action) => {
         }
       });
       newEventsList.splice(removeIndex, 1);
-      console.log('newEventsList', newEventsList);
       return {
         ...state,
         eventsList: [...newEventsList],
