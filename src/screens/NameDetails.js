@@ -25,6 +25,10 @@ class NameDetails extends Component {
           placeholder="Your name"
           defaultValue={name}
           onChangeText={this.handleNameInput}
+          onSubmitEditing={() => {
+            loginUser(name);
+            navigation.navigate('eventsList');
+          }}
         />
         <Button
           style={styles.textInputButton}

@@ -1,4 +1,4 @@
-import {LOGIN_USER, ADD_EVENT, DELETE_EVENT} from '../actions/types';
+import { LOGIN_USER, ADD_EVENT, DELETE_EVENT } from '../actions/types';
 
 const initialState = {
   name: '',
@@ -20,14 +20,23 @@ const userReducer = (state = initialState, action) => {
         eventsList: [...state.eventsList, action.payload],
       };
     case DELETE_EVENT: {
-      var removeIndex = state.eventsList
-        .map(function (event) {
-          return event.id;
-        })
-        .indexOf(action.id);
+      var removeIndex = -1;
+      const newEventsList = state.eventsList;
+      newEventsList.some((event, index) => {
+        console.log('index: ', index);
+        if (event.id === action.id) {
+          console.log("Index found", index);
+          removeIndex = index;
+          return true;
+        } else {
+          removeIndex = -1;
+        }
+      });
+      newEventsList.splice(removeIndex, 1);
+      console.log('newEventsList', newEventsList);
       return {
-        ...state.userData.eventsList,
-        ...state.eventsList.splice(removeIndex, 1),
+        ...state,
+        eventsList: [...newEventsList],
       };
     }
     default:

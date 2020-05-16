@@ -70,22 +70,33 @@ class EventsList extends PureComponent {
 
   render() {
     const {dataFormat, shouldPickerBeVisible} = this.state;
+    const {navigation} = this.props;
     console.log('userData: ', this.props.userData, dataFormat);
     return (
       <ScrollView style={{paddingTop: 48, paddingHorizontal: 15}}>
-        <TouchableOpacity
-          style={styles.pickerSelectionButton}
-          hitSlop={{
-            top: 20,
-            bottom: 20,
-          }}
-          onPress={() => {
-            this.setState({shouldPickerBeVisible: !shouldPickerBeVisible});
-          }}>
-          <Text style={{color: '#fff'}}>
-            Select The Format to render the list
-          </Text>
-        </TouchableOpacity>
+        <View style={{flexDirection: 'row', width: '100%', justifyContent: 'space-around'}}>
+          <TouchableOpacity
+            style={styles.pickerSelectionButton}
+            hitSlop={{
+              top: 20,
+              bottom: 20,
+            }}
+            onPress={() => {
+              this.setState({shouldPickerBeVisible: !shouldPickerBeVisible});
+            }}>
+            <Text style={{color: '#fff'}}>
+              Select The Format to render the list
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.pickerSelectionButton,
+              {alignSelf: 'flex-end', backgroundColor: 'green'},
+            ]}
+            onPress={() => navigation.navigate('eventTracker')}>
+            <Text style={{color: '#fff'}}>Track your events</Text>
+          </TouchableOpacity>
+        </View>
         {shouldPickerBeVisible && (
           <Picker
             style={styles.pickerStyle}

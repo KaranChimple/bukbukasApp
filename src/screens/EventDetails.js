@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import {View, Text, Image, Button} from 'react-native';
+import {View, Text, Image, Button, TouchableOpacity} from 'react-native';
 import styles from './styles';
 import {connect} from 'react-redux';
 import {AddEvent} from '../actions/user';
@@ -21,9 +21,21 @@ class EventDetails extends PureComponent {
 
   render() {
     const {eventDetails} = this.state;
+    const {navigation, AddEvent} = this.props;
     return (
       <View style={styles.parentContainerCenterAligned}>
-        <Text>Event Details Screen</Text>
+        <View style={{flexDirection: 'row'}}>
+          <TouchableOpacity
+            style={[styles.registerButtonBigView, {alignSelf: 'flex-start'}]}
+            onPress={() => navigation.goBack()}>
+            <Text style={styles.registerButtonBigText}>Go Back</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.registerButtonBigView, {alignSelf: 'flex-end'}]}
+            onPress={() => navigation.navigate('eventTracker')}>
+            <Text style={styles.registerButtonBigText}>Track your events</Text>
+          </TouchableOpacity>
+        </View>
         <View style={styles.fullImageContainer}>
           <Image
             source={eventDetails.eventImage}
@@ -56,4 +68,6 @@ class EventDetails extends PureComponent {
   }
 }
 
-export default connect(() => ({}), {AddEvent})(EventDetails);
+const mapStateToProps = (state) => ({});
+
+export default connect(mapStateToProps, {AddEvent})(EventDetails);
