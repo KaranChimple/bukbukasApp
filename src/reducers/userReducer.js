@@ -1,4 +1,5 @@
 import {LOGIN_USER, ADD_EVENT, DELETE_EVENT} from '../actions/types';
+import {REHYDRATE} from 'redux-persist';
 
 const initialState = {
   name: '',
@@ -7,7 +8,31 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
+    case REHYDRATE:
+      console.log('rehydrate Event: ', action);
+      if (!action.payload) {
+        return {...state};
+      }
+      return {
+        ...state,
+        ...{
+          name: action.payload.userData.name
+            ? action.payload.userData.name
+            : '',
+          eventsList: action.payload.userData.eventsList
+            ? action.payload.userData.eventsList
+            : [],
+        },
+      };
     case LOGIN_USER:
+      if (state.name !== action.payload) {
+        console.log('Values changed', state.rehydratedName, action.payload);
+        return {
+          ...state,
+          name: action.payload,
+          eventsList: [],
+        };
+      }
       return {
         ...state,
         ...{

@@ -24,9 +24,12 @@ class EventDetails extends PureComponent {
     const {navigation, AddEvent} = this.props;
     return (
       <View style={styles.parentContainerCenterAligned}>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <TouchableOpacity
-            style={[styles.registerButtonBigView, {alignSelf: 'flex-start'}]}
+            style={[
+              styles.registerButtonBigView,
+              {alignSelf: 'flex-start', marginRight: 10},
+            ]}
             onPress={() => navigation.goBack()}>
             <Text style={styles.registerButtonBigText}>Go Back</Text>
           </TouchableOpacity>
