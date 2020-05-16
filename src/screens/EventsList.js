@@ -71,15 +71,9 @@ class EventsList extends PureComponent {
   render() {
     const {dataFormat, shouldPickerBeVisible} = this.state;
     const {navigation} = this.props;
-    console.log('userData: ', this.props.userData, dataFormat);
     return (
-      <ScrollView style={{paddingTop: 48, paddingHorizontal: 15}}>
-        <View
-          style={{
-            flexDirection: 'row',
-            width: '100%',
-            justifyContent: 'space-around',
-          }}>
+      <ScrollView style={styles.parentScrollView}>
+        <View style={styles.alignContentSpaceBetween}>
           <TouchableOpacity
             style={styles.pickerSelectionButton}
             hitSlop={{
@@ -89,17 +83,14 @@ class EventsList extends PureComponent {
             onPress={() => {
               this.setState({shouldPickerBeVisible: !shouldPickerBeVisible});
             }}>
-            <Text style={{color: '#fff'}}>
+            <Text style={styles.whiteColor}>
               Select The Format to render the list
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[
-              styles.pickerSelectionButton,
-              {alignSelf: 'flex-end', backgroundColor: 'green'},
-            ]}
+            style={[styles.pickerSelectionButton, styles.rightAlignContainer]}
             onPress={() => navigation.navigate('eventTracker')}>
-            <Text style={{color: '#fff'}}>Track your events</Text>
+            <Text style={styles.whiteColor}>Track your events</Text>
           </TouchableOpacity>
         </View>
         {shouldPickerBeVisible && (
@@ -113,7 +104,7 @@ class EventsList extends PureComponent {
             <Picker.Item label={LIST_TYPES.grid} value={LIST_TYPES.grid} />
           </Picker>
         )}
-        <View style={{paddingBottom: 80}}>
+        <View style={styles.lowerPadding}>
           <FlatList
             data={EVENTS_DATA}
             key={dataFormat === LIST_TYPES.list ? 'list' : 'grid'}

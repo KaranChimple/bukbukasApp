@@ -24,17 +24,14 @@ class EventDetails extends PureComponent {
     const {navigation, AddEvent} = this.props;
     return (
       <View style={styles.parentContainerCenterAligned}>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View style={styles.alignContentSpaceBetween}>
           <TouchableOpacity
-            style={[
-              styles.registerButtonBigView,
-              {alignSelf: 'flex-start', marginRight: 10},
-            ]}
+            style={[styles.registerButtonBigView, styles.leftGobackButton]}
             onPress={() => navigation.goBack()}>
             <Text style={styles.registerButtonBigText}>Go Back</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.registerButtonBigView, {alignSelf: 'flex-end'}]}
+            style={[styles.registerButtonBigView, styles.alignSelfToEnd]}
             onPress={() => navigation.navigate('eventTracker')}>
             <Text style={styles.registerButtonBigText}>Track your events</Text>
           </TouchableOpacity>
@@ -43,7 +40,7 @@ class EventDetails extends PureComponent {
           <Image
             source={eventDetails.eventImage}
             resizeMode="contain"
-            style={{width: '100%'}}
+            style={styles.fullWidth}
           />
 
           <Text style={styles.eventDetailsTextStyle}>

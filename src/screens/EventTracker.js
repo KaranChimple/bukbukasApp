@@ -1,13 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  FlatList,
-  Image,
-  Button,
-} from 'react-native';
+import {View, Text, TouchableOpacity, FlatList, Image} from 'react-native';
 import Swipable from 'react-native-gesture-handler/Swipeable';
 import styles from './styles';
 import {DeleteEvent} from '../actions/user';
@@ -46,7 +39,7 @@ class EventTracker extends Component {
           )}>
           <View style={styles.eventContainerList}>
             <Image source={item.eventImage} style={styles.eventImageList} />
-            <View style={{marginLeft: 10, width: '50%', flex: 1}}>
+            <View style={styles.textDetailsContainer}>
               <Text style={styles.eventDetailsStyle}>{item.name}</Text>
               <Text style={styles.eventDetailsStyle}>{item.place}</Text>
               <Text style={styles.eventDetailsStyle}>{item.entryType}</Text>
@@ -59,11 +52,10 @@ class EventTracker extends Component {
 
   render() {
     const {navigation, userData} = this.props;
-    console.log('UserData', userData);
     return (
-      <View style={{margin: 20}}>
+      <View style={styles.parentConatinerMargin}>
         <TouchableOpacity
-          style={[styles.registerButtonBigView, {alignSelf: 'flex-start'}]}
+          style={[styles.registerButtonBigView, styles.alignSelfToTheStart]}
           onPress={() => navigation.goBack()}>
           <Text style={styles.registerButtonBigText}>Go Back</Text>
         </TouchableOpacity>

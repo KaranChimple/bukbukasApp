@@ -123,6 +123,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   fullImageContainer: {height: 500, width: '80%'},
+  alignContentSpaceBetween: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  leftGobackButton: {alignSelf: 'flex-start', marginRight: 10},
+  alignSelfToEnd: {alignSelf: 'flex-end'},
+  fullWidth: {width: '100%'},
+  parentScrollView: {paddingTop: 48, paddingHorizontal: 15},
+  whiteColor: {color: '#fff'},
+  rightAlignContainer: {alignSelf: 'flex-end', backgroundColor: 'green'},
+  lowerPadding: {paddingBottom: 80},
+  textDetailsContainer: {marginLeft: 10, width: '50%', flex: 1},
+  parentConatinerMargin: {margin: 20},
+  alignSelfToTheStart: {alignSelf: 'flex-start'},
 });
 
 export default styles;

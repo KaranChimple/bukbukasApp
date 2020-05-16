@@ -30,11 +30,9 @@ export const loginUser = (userName) => (dispatch) => {
 };
 
 export const AddEvent = (eventDetails) => (dispatch) => {
-  console.log('eventDetails', eventDetails);
   dispatch(addEventSuccess(eventDetails));
 };
 
 export const DeleteEvent = (eventId) => (dispatch) => {
-  console.log('eventId', eventId);
   dispatch(deleteEventSuccess(eventId));
 };
